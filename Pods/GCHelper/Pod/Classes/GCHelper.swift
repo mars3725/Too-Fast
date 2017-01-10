@@ -37,13 +37,13 @@ public protocol GCHelperDelegate: class {
 }
 
 /// A GCHelper instance represents a wrapper around a GameKit match.
-public class GCHelper: NSObject, GKMatchmakerViewControllerDelegate, GKGameCenterControllerDelegate, GKMatchDelegate, GKLocalPlayerListener {
+open class GCHelper: NSObject, GKMatchmakerViewControllerDelegate, GKGameCenterControllerDelegate, GKMatchDelegate, GKLocalPlayerListener {
     
     /// An array of retrieved achievements. `loadAllAchievements(completion:)` must be called in advance.
-    public var achievements = [String: GKAchievement]()
+    open var achievements = [String: GKAchievement]()
     
     /// The match object provided by GameKit.
-    public var match: GKMatch!
+    open var match: GKMatch!
     
     fileprivate weak var delegate: GCHelperDelegate?
     fileprivate var invite: GKInvite!
@@ -60,7 +60,7 @@ public class GCHelper: NSObject, GKMatchmakerViewControllerDelegate, GKGameCente
     fileprivate var matchStarted = false
     
     /// The shared instance of GCHelper, allowing you to access the same instance across all uses of the library.
-    public class var sharedInstance: GCHelper {
+    open class var sharedInstance: GCHelper {
         struct Static {
             static let instance = GCHelper()
         }
